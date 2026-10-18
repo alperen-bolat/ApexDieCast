@@ -323,7 +323,15 @@ svg { width: 1.2em; height: 1.2em; fill: currentColor; flex-shrink: 0; }
     position: relative;
     height: 520px;
     perspective: 1400px;
+    transform: translateX(var(--drag, 0px));
+    transition: transform 0.35s ease-out;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y; /* dikey sayfa kaydırma çalışmaya devam eder */
 }
+.showcase-stage.dragging { cursor: grabbing; transition: none; }
+.showcase:focus-visible { outline: 2px solid var(--red); outline-offset: 8px; border-radius: 20px; }
 .showcase-slide {
     position: absolute;
     top: 0;

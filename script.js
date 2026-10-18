@@ -59,7 +59,7 @@ MODELS.forEach((model, i) => {
     const slide = document.createElement("div");
     slide.className = "showcase-slide";
     slide.innerHTML = `
-        <img src="${model.image}" alt="${model.name}" ${i > 2 ? 'loading="lazy"' : ""}>
+        <img src="${model.image}" alt="${model.name}" draggable="false" ${i > 2 ? 'loading="lazy"' : ""}>
         ${model.status === "soon" ? '<span class="stamp-big">COMING SOON</span>' : ""}`;
     slide.addEventListener("click", () => (i === current ? openLightbox(model) : goTo(i)));
     stage.appendChild(slide);
@@ -95,14 +95,66 @@ $("#showcaseNext").addEventListener("click", () => goTo(current + 1));
 $("#showcase").addEventListener("mouseenter", () => clearInterval(timer));
 $("#showcase").addEventListener("mouseleave", restartTimer);
 
-// Mobilde parmakla kaydırma
-let touchX = null;
-stage.addEventListener("touchstart", (e) => (touchX = e.touches[0].clientX), { passive: true });
-stage.addEventListener("touchend", (e) => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
-    touchX = null;
+// Fare veya parmakla tutup kaydırma
+// Sürükleme mesafesine göre birden fazla model atlanabilir.
+const SLIDE_STEP = 120; // bir model atlamak için gereken piksel
+let dragStartX = null;
+let dragX = 0;
+let dragged = false;
+
+stage.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    dragStartX = e.clientX;
+    dragX = 0;
+    dragged = false;
+    clearInterval(timer);
+    stage.setPointerCapture(e.pointerId);
+    stage.classList.add("dragging");
+});
+
+stage.addEventListener("pointermove", (e) => {
+    if (dragStartX === null) return;
+    dragX = e.clientX - dragStartX;
+    if (Math.abs(dragX) > 6) dragged = true;
+    // Sürüklerken vitrin parmağı/fareyi takip eder
+    stage.style.setProperty("--drag", `${dragX * 0.35}px`);
+    // Uzun sürüklemede modeller anlık değişir
+    if (Math.abs(dragX) >= SLIDE_STEP) {
+        const dir = dragX < 0 ? 1 : -1;
+        goTo(current + dir);
+        clearInterval(timer);
+        dragStartX = e.clientX;
+        dragX = 0;
+        stage.style.setProperty("--drag", "0px");
+    }
+});
+
+function endDrag() {
+    if (dragStartX === null) return;
+    if (Math.abs(dragX) > 40) goTo(current + (dragX < 0 ? 1 : -1));
+    dragStartX = null;
+    dragX = 0;
+    stage.style.setProperty("--drag", "0px");
+    stage.classList.remove("dragging");
+    if (!$("#showcase").matches(":hover")) restartTimer();
+}
+stage.addEventListener("pointerup", endDrag);
+stage.addEventListener("pointercancel", endDrag);
+
+// Sürükleme bittiğinde tıklama olarak sayılmasın (lightbox açılmasın)
+stage.addEventListener("click", (e) => {
+    if (dragged) {
+        e.stopPropagation();
+        e.preventDefault();
+        dragged = false;
+    }
+}, true);
+
+// Klavye ile ok tuşları
+$("#showcase").setAttribute("tabindex", "0");
+$("#showcase").addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") goTo(current - 1);
+    if (e.key === "ArrowRight") goTo(current + 1);
 });
 
 goTo(0);
