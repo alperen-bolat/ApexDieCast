@@ -3,15 +3,35 @@
 // image: assets/cars klasöründeki görsel, link: Instagram paylaşımı,
 // status: "soon" → COMING SOON damgası, "stock" → Stokta etiketi
 const MODELS = [
-    { name: "Nissan Silvia S14 Widebody", brand: "Silvia Series", image: "assets/cars/car-1.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcRl43Xxksm/", status: "soon" },
-    { name: "Ferrari Daytona SP3",         brand: "Ferrari",       image: "assets/cars/car-2.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcKMHKlIihq/", status: "soon" },
-    { name: "Nissan Silvia S14 Yellow",    brand: "Silvia Series", image: "assets/cars/car-3.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcKKOKjINL7/", status: "soon" },
-    { name: "BMW M3 CS (F80) White",       brand: "BMW M",         image: "assets/cars/car-4.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcG3WH3hwJ3/", status: "soon" },
-    { name: "Nissan Silvia Green Carbon",  brand: "Silvia Series", image: "assets/cars/car-5.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGynEtS_xp/", status: "soon" },
-    { name: "Ferrari 488 Pista",           brand: "Sole 64",       image: "assets/cars/car-6.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGxatpIFPu/", status: "soon" },
-    { name: "BMW M3 CS (F80) Yellow",      brand: "BMW M",         image: "assets/cars/car-7.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGwUsvIwad/", status: "soon" },
-    { name: "Mitsubishi Lancer Evolution", brand: "Mitsubishi",    image: "assets/cars/car-8.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/Db_ofAURTqN/", status: "soon" },
-    { name: "Ferrari F40",                 brand: "DMH",           image: "assets/cars/car-9.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DbyE7mFo9BK/", status: "soon" }
+    { name: "Nissan Silvia S14 GT-Spec V1",       brand: "Mortal Model",          image: "assets/cars/car-1.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcRl43Xxksm/", status: "soon" },
+    { name: "Ferrari Daytona SP3",                brand: "SUHE",                  image: "assets/cars/car-2.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcKMHKlIihq/", status: "soon" },
+    { name: "Nissan Silvia S14 GT-Spec V1 Yellow", brand: "Mortal Model",         image: "assets/cars/car-3.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcKKOKjINL7/", status: "soon" },
+    { name: "BMW F31 M3 CS Touring White",        brand: "Mortal Model",          image: "assets/cars/car-4.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcG3WH3hwJ3/", status: "soon" },
+    { name: "Nissan Silvia S14 GT-Spec V2 Green Carbon", brand: "Mortal Model",   image: "assets/cars/car-5.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGynEtS_xp/", status: "soon" },
+    { name: "Ferrari 488 Pista",                  brand: "Rotating Wheel × Sole 64", image: "assets/cars/car-6.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGxatpIFPu/", status: "soon" },
+    { name: "BMW F31 M3 CS Touring Yellow",       brand: "Mortal Model",          image: "assets/cars/car-7.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DcGwUsvIwad/", status: "soon" },
+    { name: "Mitsubishi Lancer Evolution IX GSR", brand: "IHCM",                  image: "assets/cars/car-8.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/Db_ofAURTqN/", status: "soon" },
+    { name: "Ferrari F40 GTE",                    brand: "DMH",                   image: "assets/cars/car-9.jpg", link: "https://www.instagram.com/apexdiecasttr/reel/DbyE7mFo9BK/", status: "soon" }
+];
+
+// ===== Galeri (sadece görüntüleme) =====
+// Koleksiyondan kareler. Yeni görsel eklemek için assets/gallery klasörüne koyup buraya bir satır ekleyin.
+const GALLERY = [
+    { name: "Alfa Romeo Giulia GTAm",                    brand: "Alfa Romeo Serisi", image: "assets/gallery/g-01.jpg", link: "https://www.instagram.com/p/DZbUXvCiHWE/" },
+    { name: "Ferrari LaFerrari",                         brand: "Demon King",        image: "assets/gallery/g-02.jpg", link: "https://www.instagram.com/p/DZ2dmCvCEqq/" },
+    { name: "Nissan Skyline GT-R R34 V-Spec II Digital Camo", brand: "Mini GT",      image: "assets/gallery/g-03.jpg", link: "https://www.instagram.com/p/DZRNPP_iCHd/" },
+    { name: "BMW M3 E46 GTR Most Wanted Edition",        brand: "DCM Model",         image: "assets/gallery/g-04.jpg", link: "https://www.instagram.com/p/DZk137RiI0Z/" },
+    { name: "Toyota Supra Top Secret 2001",              brand: "BMC",               image: "assets/gallery/g-05.jpg", link: "https://www.instagram.com/p/DZim0uLCBeX/" },
+    { name: "Mitsubishi Lancer Evolution IX Widebody",   brand: "Fineclassically",   image: "assets/gallery/g-06.jpg", link: "https://www.instagram.com/p/DZLQwZbEbIK/" },
+    { name: "Nissan Skyline GT-R R34 Duo Edition",       brand: "Mortal Model",      image: "assets/gallery/g-07.jpg", link: "https://www.instagram.com/p/DZcayGrCOfD/" },
+    { name: "Ford Ranger Raptor Baja 1000",              brand: "MK Miniatures",     image: "assets/gallery/g-08.jpg", link: "https://www.instagram.com/p/DZThpXHCA1l/" },
+    { name: "Tofaş Doğan SLX Gümüş Gri",                 brand: "Oto64",             image: "assets/gallery/g-09.jpg", link: "https://www.instagram.com/p/Dbtu9Q7iDnT/" },
+    { name: "Honda Civic EG4 Pandem White Edition",      brand: "YM Model",          image: "assets/gallery/g-10.jpg", link: "https://www.instagram.com/p/DZKdEO2CC9w/" },
+    { name: "Nissan Skyline GT-R R34 Gulf",              brand: "Demon King",        image: "assets/gallery/g-11.jpg", link: "https://www.instagram.com/p/DZKqU57iDcR/" },
+    { name: "Tofaş Doğan SLX Bordo",                     brand: "Oto64",             image: "assets/gallery/g-12.jpg", link: "https://www.instagram.com/p/Dbtuvu3CEbh/" },
+    { name: "Ferrari F8 Tributo Rosso Corsa",            brand: "Hone Model",        image: "assets/gallery/g-13.jpg", link: "https://www.instagram.com/p/DZnRiB1iNpN/" },
+    { name: "BMW 2002 Alpina Jägermeister Edition",      brand: "YS Model",          image: "assets/gallery/g-14.jpg", link: "https://www.instagram.com/p/DZKeVSnCPeH/" },
+    { name: "Ferrari F40 Chinese Edition",               brand: "Demon King",        image: "assets/gallery/g-15.jpg", link: "https://www.instagram.com/p/DbZLnjoCNLX/" }
 ];
 
 const $ = (sel) => document.querySelector(sel);
@@ -32,15 +52,41 @@ nav.querySelectorAll("a").forEach((a) =>
 
 // ===== Lightbox =====
 const lightbox = $("#lightbox");
-function openLightbox(model) {
+let lightboxList = [];
+let lightboxIndex = 0;
+
+function showLightboxItem() {
+    const model = lightboxList[lightboxIndex];
     $("#lightboxImg").src = model.image;
     $("#lightboxImg").alt = model.name;
+    $("#lightboxBrand").textContent = model.brand;
     $("#lightboxCaption").textContent = model.name;
     $("#lightboxLink").href = model.link;
+    $("#lightboxLink").textContent = model.link.includes("/reel/") ? "Videoyu izle" : "Instagram'da gör";
+    $("#lightboxCount").textContent = `${lightboxIndex + 1} / ${lightboxList.length}`;
+}
+
+function openLightbox(model, list = [model]) {
+    lightboxList = list;
+    lightboxIndex = Math.max(0, list.indexOf(model));
+    lightbox.classList.toggle("single", list.length < 2);
+    showLightboxItem();
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
     $("#lightboxClose").focus();
 }
+
+function stepLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + lightboxList.length) % lightboxList.length;
+    showLightboxItem();
+}
+$("#lightboxPrev").addEventListener("click", () => stepLightbox(-1));
+$("#lightboxNext").addEventListener("click", () => stepLightbox(1));
+document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden || lightboxList.length < 2) return;
+    if (e.key === "ArrowLeft") stepLightbox(-1);
+    if (e.key === "ArrowRight") stepLightbox(1);
+});
 function closeLightbox() {
     lightbox.hidden = true;
     document.body.style.overflow = "";
@@ -61,7 +107,7 @@ MODELS.forEach((model, i) => {
     slide.innerHTML = `
         <img src="${model.image}" alt="${model.name}" draggable="false" ${i > 2 ? 'loading="lazy"' : ""}>
         ${model.status === "soon" ? '<span class="stamp-big">COMING SOON</span>' : ""}`;
-    slide.addEventListener("click", () => (i === current ? openLightbox(model) : goTo(i)));
+    slide.addEventListener("click", () => (i === current ? openLightbox(model, MODELS) : goTo(i)));
     stage.appendChild(slide);
 
     const dot = document.createElement("button");
@@ -177,7 +223,7 @@ MODELS.forEach((model) => {
                 <a class="model-link" href="${model.link}" target="_blank" rel="noopener">İncele →</a>
             </div>
         </div>`;
-    card.querySelector(".model-media").addEventListener("click", () => openLightbox(model));
+    card.querySelector(".model-media").addEventListener("click", () => openLightbox(model, MODELS));
     rail.appendChild(card);
 });
 
@@ -189,17 +235,21 @@ document.querySelectorAll("[data-rail]").forEach((btn) =>
 );
 
 // ===== Galeri =====
+// Tıklayınca büyük görsel açılır, oklarla galeride gezilir.
 const gallery = $("#gallery");
-MODELS.forEach((model) => {
-    const item = document.createElement("a");
+GALLERY.forEach((model) => {
+    const item = document.createElement("button");
+    item.type = "button";
     item.className = "gallery-item reveal";
-    item.href = model.link;
-    item.target = "_blank";
-    item.rel = "noopener";
-    item.setAttribute("aria-label", `${model.name} videosunu Instagram'da izle`);
+    item.setAttribute("aria-label", `${model.name} görselini büyüt`);
     item.innerHTML = `
         <img src="${model.image}" alt="${model.name}" loading="lazy">
-        <span class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>`;
+        <span class="gallery-caption">
+            <small>${model.brand}</small>
+            <strong>${model.name}</strong>
+        </span>
+        <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm1 2v2h2v2h-2v2H9v-2H7V9h2V7h2z"/></svg></span>`;
+    item.addEventListener("click", () => openLightbox(model, GALLERY));
     gallery.appendChild(item);
 });
 

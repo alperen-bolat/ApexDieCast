@@ -122,8 +122,8 @@
                 <div class="section-head center">
                     <div>
                         <span class="eyebrow">Galeri</span>
-                        <h2 class="section-title">Instagram'dan son kareler</h2>
-                        <p class="section-sub">Modellerin videolarını izlemek için görsele tıklayın.</p>
+                        <h2 class="section-title">Koleksiyondan kareler</h2>
+                        <p class="section-sub">Büyütmek için görsele tıklayın, oklarla galeride gezinin.</p>
                     </div>
                 </div>
                 <div class="gallery" id="gallery"></div>
@@ -239,11 +239,17 @@
     <!-- Büyük görsel (lightbox) -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Model görseli" hidden>
         <button class="lightbox-close" id="lightboxClose" aria-label="Kapat">×</button>
+        <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Önceki görsel">‹</button>
+        <button class="lightbox-nav next" id="lightboxNext" aria-label="Sonraki görsel">›</button>
         <figure>
             <img id="lightboxImg" src="" alt="">
             <figcaption>
-                <span id="lightboxCaption"></span>
-                <a id="lightboxLink" href="#" target="_blank" rel="noopener" class="btn btn-red btn-sm">Videoyu izle</a>
+                <span class="lightbox-text">
+                    <small id="lightboxBrand"></small>
+                    <span id="lightboxCaption"></span>
+                </span>
+                <span class="lightbox-count" id="lightboxCount"></span>
+                <a id="lightboxLink" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Instagram'da gör</a>
             </figcaption>
         </figure>
     </div>
