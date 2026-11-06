@@ -253,8 +253,29 @@ GALLERY.forEach((model) => {
     gallery.appendChild(item);
 });
 
+// ===== Direkt mesaj formu =====
+// Sunucu olmadığı için mesaj WhatsApp'ta hazır metin olarak açılır.
+const WHATSAPP_NUMBER = "905322459744";
+const messageForm = $("#messageForm");
+messageForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = messageForm.elements.name.value.trim();
+    const topic = messageForm.elements.topic.value;
+    const message = messageForm.elements.message.value.trim();
+    const status = $("#formStatus");
+
+    if (!name || !message) {
+        status.textContent = "Lütfen adınızı ve mesajınızı yazın.";
+        (name ? messageForm.elements.message : messageForm.elements.name).focus();
+        return;
+    }
+    status.textContent = "";
+    const text = `Merhaba, ben ${name}.\nKonu: ${topic}\n\n${message}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+});
+
 // ===== Kaydırınca belirme animasyonu =====
-document.querySelectorAll(".feature, .cta-card, .section-head").forEach((el) => el.classList.add("reveal"));
+document.querySelectorAll(".feature, .cta-card, .section-head, .message-panel").forEach((el) => el.classList.add("reveal"));
 const observer = new IntersectionObserver(
     (entries) => entries.forEach((entry) => {
         if (entry.isIntersecting) {
